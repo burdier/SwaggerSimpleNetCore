@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CitaMedica.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class CitasMedicasController : ControllerBase
     {
@@ -34,20 +34,21 @@ namespace CitaMedica.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
-        // GET: api/CitasMedicas
+        /// <summary>
+        /// Agregar una cita medica 
+        /// </summary>
+        /// <param name="medicalAppointment"></param>
+        /// <returns>Retorna los datos de la cita</returns>
         [HttpPost]
         public ActionResult<MedicalAppointment> Post(MedicalAppointment medicalAppointment)
         {
             try
             {
-                return _medicalAppointmentService.Add(medicalAppointment);
-
+              return _medicalAppointmentService.Add(medicalAppointment);
             }
             catch (Exception ex)
-            {
-
-                return BadRequest(ex.Message);
+            { 
+              return BadRequest(ex.Message);
             }
         }
 

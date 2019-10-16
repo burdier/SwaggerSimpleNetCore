@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CitaMedica</name>
+    </assembly>
+    <members>
+        <member name="M:CitaMedica.Controllers.CitasMedicasController.Post(CitaMedica.BackEnd.Entity.MedicalAppointment)">
+            <summary>
+            Agregar una cita medica 
+            </summary>
+            <param name="medicalAppointment"></param>
+            <returns>Retorna los datos de la cita</returns>
+        </member>
+    </members>
+</doc>

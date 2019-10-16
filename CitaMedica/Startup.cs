@@ -46,6 +46,25 @@ namespace CitaMedica
                 });
     
             });
+
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v2", new OpenApiInfo
+                {
+                    Title = "Citas medicas  Documentación esta es la version dos ",
+                    Version = "v2",
+                    Description = "REST API  para la  Aplicacion Citas  Medica by: Burdier",
+                    Contact = new OpenApiContact() { Name = "Jose Australiano", Email = "joseAustraliano@outlook.com" }
+
+                });
+
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.XML";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +77,9 @@ namespace CitaMedica
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "PvApp Api V1");
+               
             });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
